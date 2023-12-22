@@ -1,0 +1,11 @@
+iAYRn8:
+  sampleName: consul.log
+  created: 1703175203741
+  size: 3685
+  numEvents: 17
+W6l8ep:
+  sampleName: vault.log
+  created: 1703178243460
+  isPackOnly: true
+  size: 19433
+  numEvents: 8

@@ -1,0 +1,1 @@
+{"name":"cribl-hashicorp","version":"0.0.1","minLogStreamVersion":"4.0.0","author":"Jon Rust - Cribl","description":"Parse, suppress and fix-up Hashicorp vault and consul logs","displayName":"Cribl Hashicorp","tags":{"streamtags":[],"dataType":["logs"],"useCase":["reduction","aggregation"]}}

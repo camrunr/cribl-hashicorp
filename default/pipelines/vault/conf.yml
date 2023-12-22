@@ -1,0 +1,54 @@
+output: default
+streamtags: []
+groups: {}
+asyncFuncTimeout: 1000
+functions:
+  - id: comment
+    filter: "true"
+    disabled: null
+    conf:
+      comment: >-
+        Use Parser on the JSON log to reserialize the data after some cleanup
+
+        - drop any fields that are null
+
+        - drop time because it's already in _time
+
+        - Drop granting policies because it seemed redundant
+
+        - Drop request.client_token_accessor because same as auth.accessor
+
+        - Drop response.data because seems unneeded? Maybe? Your call :-)
+
+
+        This is mostly a demo of what you could do. We would need to know more about the goals and reqs to really dig in.
+  - id: serde
+    filter: "true"
+    disabled: null
+    conf:
+      mode: reserialize
+      type: json
+      srcField: _raw
+      dstField: _raw
+      fieldFilterExpr: value !== null
+      remove:
+        - time
+        - auth.policy_results.granting_policies*
+        - request.client_token_accessor
+        - response.data*
+  - id: eval
+    filter: "true"
+    disabled: null
+    conf:
+      remove: []
+      add:
+        - disabled: false
+          name: source
+          value: "source ? source : 'vault'"
+        - disabled: false
+          name: sourcetype
+          value: "sourcetype ? sourcetype : 'vault'"
+        - disabled: false
+          name: index
+          value: "index ? index : 'hashi'"
+    description: Prep for splunk output
