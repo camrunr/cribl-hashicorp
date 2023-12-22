@@ -1,0 +1,37 @@
+id: default
+groups: {}
+comments: []
+routes:
+  - id: 1LOPkF
+    name: consul
+    final: true
+    disabled: false
+    pipeline: consul
+    description: ""
+    clones: []
+    enableOutputExpression: false
+    outputExpression: null
+    filter: sourcetype == 'consul'
+    output: default
+  - id: p6YNnd
+    name: vault
+    final: true
+    disabled: false
+    pipeline: vault
+    description: ""
+    clones: []
+    enableOutputExpression: false
+    outputExpression: null
+    filter: sourcetype == 'vault'
+    output: default
+  - id: default
+    name: default
+    final: true
+    disabled: false
+    pipeline: main
+    description: ""
+    clones: []
+    enableOutputExpression: false
+    outputExpression: null
+    filter: "true"
+    output: default

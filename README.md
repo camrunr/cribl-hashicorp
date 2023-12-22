@@ -15,6 +15,9 @@ The pack assumes a sourcetype field with either vault or consul in the value som
 
 ## Release Notes
 
+### Version 0.0.2
+Added the routes to look for sourcetype
+
 ### Version 0.0.1
 Initial non-release release. Use with caution.
 
